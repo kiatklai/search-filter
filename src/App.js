@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import {useState} from 'react'
 import './App.css';
 
 function App() {
+  const data = [
+    {id:1,name:"Thailand",region:"Asia",population:100},
+    {id:2,name:"Japan",region:"Asia",population:100}
+  ]
+
+  const [countries,setCounties] = useState(data)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+     <ul>
+      {countries.map((item)=>{
+        return <li key={item.id}>{item.name} | {item.region}</li>
+      })}
+     </ul>
     </div>
   );
 }
