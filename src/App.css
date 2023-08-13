@@ -40,3 +40,12 @@
 ul,ol{
   list-style: none;
 }
+.search-container{
+  margin: 48px 0;
+}
+.search-input{
+  padding: 1.4em 1.4em;
+  width: 96%;
+  font-size: 18px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
