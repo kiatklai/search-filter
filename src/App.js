@@ -14,10 +14,16 @@ function App() {
     })
   },[])
 
+  const formatNumber=(num)=> {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+  }
+
   const searchCountries=(countries)=>{
     return countries.filter((item)=>{
       return dataFilter.some((filter)=>{
-        return item[filter].toString().toLowerCase().indexOf(word.toLowerCase())>-1
+        if(item[filter]){
+          return item[filter].toString().toLowerCase().indexOf(word.toLowerCase())>-1
+        }
       })
     })
   }
@@ -46,7 +52,7 @@ function App() {
                   <div className='card-description'>
                     <h2>{item.name}</h2>
                     <ol>
-                      <li>人口：<span>{item.population}</span></li>
+                      <li>人口：<span>{formatNumber(item.population)}</span>人</li>
                       <li>エリア：<span>{item.region}</span></li>
                       <li>首都：<span>{item.capital}</span></li>
                     </ol>
